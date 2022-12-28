@@ -23,7 +23,7 @@
 
         /* PARAMETRI DI CONNESSIONE */
         $PARAMETERS['database']['username'] = '_DATABASE_USERNAME_'; //nome utente del database
-        $PARAMETERS['database']['password'] = '_DATABASE_PASSWORD'; //password del database
+        $PARAMETERS['database']['password'] = '_DATABASE_PASSWORD_'; //password del database
         $PARAMETERS['database']['database_name'] = '_DATABASE_NAME_'; //nome del database
         $PARAMETERS['database']['url'] = 'localhost'; //indirizzo ip del database
 
