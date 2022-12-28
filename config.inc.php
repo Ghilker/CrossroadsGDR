@@ -42,7 +42,7 @@
 
 
         /* INFORMAZIONI SUL SITO */
-        $PARAMETERS['info']['site_name'] = 'CrossRoads GDR'; //nome del gioco
+        $PARAMETERS['info']['site_name'] = 'BLABLA'; //nome del gioco
         $PARAMETERS['info']['site_url'] = 'https://provalice.altervista.org/'; //indirizzo URL del gioco
         $PARAMETERS['info']['webmaster_name'] = 'ToK Gestione'; //nome e cognome del responsabile del sito
         $PARAMETERS['info']['webmaster_email'] = 'ayanesworld@gmail.com'; //email ufficiale del webmaster (è visibile in homepage)
