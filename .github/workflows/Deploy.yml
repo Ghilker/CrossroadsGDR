@@ -12,6 +12,8 @@ jobs:
       run: sed -i 's/_DATABASE_USERNAME_/${{ secrets._DATABASE_USERNAME_ }}/g' $GITHUB_WORKSPACE/config.inc.php
     - name: Replace Password
       run: sed -i 's/_DATABASE_PASSWORD_/${{ secrets._DATABASE_PASSWORD_ }}/g' $GITHUB_WORKSPACE/config.inc.php
+    - name: Replace Database Name
+      run: sed -i 's/_DATABASE_NAME_/${{ secrets._DATABASE_NAME_ }}/g' $GITHUB_WORKSPACE/config.inc.php
     - name: Upload ftp
       uses: sebastianpopp/ftp-action@releases/v2
       with:
