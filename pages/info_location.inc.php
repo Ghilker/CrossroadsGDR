@@ -2,7 +2,7 @@
     <?php /* HELP: Il box delle informazioni carica l'immagine del luogo corrente, lo stato e la descrizione. Genera, inoltre, il meteo */
 
 
-    $result = gdrcd_query("SELECT mappa.nome, mappa.descrizione, mappa.stato, mappa.immagine, mappa.stanza_apparente, mappa.scadenza, mappa_click.meteo FROM  mappa_click LEFT JOIN mappa ON mappa_click.id_click = mappa.id_mappa WHERE id = " . $_SESSION['luogo'] . "", 'result');
+    $result = gdrcd_query("SELECT mappa.nome, mappa.descrizione, mappa.descrizione_dettagliata, mappa.stato, mappa.immagine, mappa.stanza_apparente, mappa.scadenza, mappa_click.meteo FROM  mappa_click LEFT JOIN mappa ON mappa_click.id_click = mappa.id_mappa WHERE id = " . $_SESSION['luogo'] . "", 'result');
     $record_exists = gdrcd_query($result, 'num_rows');
     $record = gdrcd_query($result, 'fetch');
 
@@ -26,7 +26,7 @@
                 <marquee onmouseover="this.stop()" onmouseout="this.start()" direction="left" scrollamount="3"
                     class="stato_luogo">&nbsp;
                     <?php
-                    echo '<a href="#" onclick="window.open(\'../pages/pagina_descrizione_luogo.php\', \'Descrizione Luogo\', \'height=500,width=500\');">' . gdrcd_filter('out', $nome_luogo) . '</a>';
+                    echo '<a href="#" onclick="window.open(\'../pages/pagina_descrizione_luogo.php\', \'Descrizione Luogo\', \'height=500,width=500\');" style="color: #031127;">' . gdrcd_filter('out', $nome_luogo) . '</a>';
                     ?>
                 </marquee>
             </h2>
@@ -238,7 +238,7 @@
 
                         <?php
                         // Mantiene il valore di 'oldH' anche dopo il refresh
-                        session_set_cookie_params(array(3600, "/"));
+                        session_set_cookie_params(3600, "/");
                         session_start();
                         // ora di riferimento
                         $_SESSION['oldH'] = 0;
