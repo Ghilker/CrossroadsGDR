@@ -1,11 +1,11 @@
 <div class="user_ambientazione">
-	<!--<div class="page_title"><h2><?php echo gdrcd_filter('out', $MESSAGE['interface']['plot']['page_name']); ?></h2></div>-->
+	<!--<div class="page_title"><h2><?php echo gdrcd_filter('out', $MESSAGE['interface']['desc_luoghi']['page_name']); ?></h2></div>-->
 	<div style="margin-top: 15px; margin-bottom: 20px"><img src="/imgs/ambientazione.png"></div>
 
 	<div class="page_body">
 		<?php /*HELP: */
 
-		$query1 = "SELECT capitolo, titolo FROM ambientazione ORDER BY capitolo";
+		$query1 = "SELECT capitolo, titolo FROM luoghi_continente ORDER BY capitolo";
 		$result1 = gdrcd_query($query1, 'result');
 
 		foreach ($result1 as $result1) {
@@ -14,10 +14,10 @@
 			echo "<button id = button$value> $name </button>";
 		}
 
-		$query2 = "SELECT capitolo, titolo FROM ambientazione ORDER BY capitolo";
+		$query2 = "SELECT capitolo, titolo FROM luoghi_continente ORDER BY capitolo";
 		$result2 = gdrcd_query($query2, 'result');
 
-		$query = "SELECT capitolo, titolo, testo FROM ambientazione ORDER BY capitolo";
+		$query = "SELECT capitolo, titolo, testo FROM luoghi_continente ORDER BY capitolo";
 		$result = gdrcd_query($query, 'result'); ?>
 
 		<script>
