@@ -96,7 +96,6 @@ if (isset($_REQUEST['op'])===FALSE){
 
 
 <div class="page_title">
-   <!---<h2><?php echo gdrcd_filter('out',$MESSAGE['interface']['sheet']['page_name']); ?></h2>--->
  <div style="margin-top: 15px; margin-bottom: 20px"><img src="/imgs/scheda.png"></div>
 </div>
 
@@ -171,11 +170,6 @@ if ($PARAMETERS['mode']['alert_password_change']=='ON')
 
 
 <div class="ritratto"><!-- nome, ritratto, ultimo ingresso -->
-
-  <!--TITOLO AVATAR: <div class="titolo_box">
-     <?php echo gdrcd_filter('out',$MESSAGE['interface']['sheet']['box_title']['portrait']); ?>
-  </div>-->
-
   <div class="ritratto_nome">
      <span class="ritratto_nome_nome">
 	    <?php echo gdrcd_filter('out',$record['nome']); ?>
@@ -201,10 +195,6 @@ if ($PARAMETERS['mode']['alert_password_change']=='ON')
    <div class="ritratto_invia_messaggio"><!-- Link invia messaggio -->
      <a href="main.php?page=messages_center&newmessage=yes&reply_dest=<?php echo gdrcd_filter('url',$record['nome']); ?>" class="link_invia_messaggio">
      <?php if (empty($PARAMETERS['names']['private_message']['image_file'])===FALSE){ ?>
-              <!--<img src="<?php echo $PARAMETERS['names']['private_message']['image_file']; ?>"
-			       alt="<?php  echo gdrcd_filter('out',$MESSAGE['interface']['sheet']['send_message_to']['send']).' '. gdrcd_filter('out',$PARAMETERS['names']['private_message']['sing']).' '.gdrcd_filter('out',$MESSAGE['interface']['sheet']['send_message_to']['to']).' '.gdrcd_filter('out',$record['nome']); ?>"
-				   title="<?php  echo gdrcd_filter('out',$MESSAGE['interface']['sheet']['send_message_to']['send']).' '. gdrcd_filter('out',$PARAMETERS['names']['private_message']['sing']).' '.gdrcd_filter('out',$MESSAGE['interface']['sheet']['send_message_to']['to']).' '.gdrcd_filter('out',$record['nome']); ?>"
-				   class="link_messaggio_forum">-->
                    <img src="imgs/icons/mail_write.png" height="30px" title="Invia una nuova missiva"> 
 	 <?php } else {
 		      echo gdrcd_filter('out',$MESSAGE['interface']['sheet']['send_message_to']['send']).' '.gdrcd_filter('out', strtolower($PARAMETERS['names']['private_message']['sing'])).' '.gdrcd_filter('out',$MESSAGE['interface']['sheet']['send_message_to']['to']).' '.gdrcd_filter('out',$record['nome']);
@@ -231,14 +221,14 @@ if ($PARAMETERS['mode']['alert_password_change']=='ON')
 	 <div class="profilo_voce_valore">
 	    <?php
 	        switch ($record['permessi']){
-		       case USER: $permessi_utente = ''; break;
-                      case CAPORAZZA: $alt_permessi = $PARAMETERS['names']['race']['lead']; break;
-                      case GUIDA: $alt_permessi = $PARAMETERS['names']['guida']['sing']; break;
-		       case CAPOGILDA: $alt_permessi = $PARAMETERS['names']['guild_name']['lead']; break;
- 		       case MASTER: $alt_permessi =  $PARAMETERS['names']['master']['sing']; break;
-                      case MODERATORE: $alt_permessi =  $PARAMETERS['names']['moderator']['sing']; break;
-		       case ADMIN: $alt_permessi = $PARAMETERS['names']['moderators']['sing']; break;
-		       case GESTORE: $alt_permessi = $PARAMETERS['names']['administrator']['sing']; break;
+				case USER: $permessi_utente = ''; break;
+				case CAPORAZZA: $alt_permessi = $PARAMETERS['names']['race']['lead']; break;
+				case GUIDA: $alt_permessi = $PARAMETERS['names']['guida']['sing']; break;
+				case CAPOGILDA: $alt_permessi = $PARAMETERS['names']['guild_name']['lead']; break;
+				case MASTER: $alt_permessi =  $PARAMETERS['names']['master']['sing']; break;
+				case MODERATORE: $alt_permessi =  $PARAMETERS['names']['moderator']['sing']; break;
+				case ADMIN: $alt_permessi = $PARAMETERS['names']['moderators']['sing']; break;
+				case GESTORE: $alt_permessi = $PARAMETERS['names']['administrator']['sing']; break;
             }
             echo gdrcd_filter('out',$permessi_utente).' <img src="imgs/icons/permessi'.(int)$record['permessi'].'.png" class="profilo_img_gilda" title="'.gdrcd_filter('out',$alt_permessi).'" />';
 	    ?>
@@ -297,60 +287,6 @@ if ($PARAMETERS['mode']['alert_password_change']=='ON')
 	    <?php echo gdrcd_filter('out',$px_totali_pg); ?>
 	 </div>
   </div>
-  <!--caratteristiche--> 
-  <!--<div class="profilo_voce">
-     <div class="profilo_voce_label">
-	    <?php echo gdrcd_filter('out',$PARAMETERS['names']['stats']['car0']); ?>:
-	 </div>
-	 <div class="profilo_voce_valore">
-	    <?php echo gdrcd_filter('out',$record['car0']+$record['bonus_car0']+$bonus_oggetti['BO0']); ?>
-	 </div>
-  </div>
-
-  <div class="profilo_voce">
-     <div class="profilo_voce_label">
-	    <?php echo gdrcd_filter('out',$PARAMETERS['names']['stats']['car1']); ?>:
-	 </div>
-	 <div class="profilo_voce_valore">
-	    <?php echo gdrcd_filter('out',$record['car1']+$record['bonus_car1']+$bonus_oggetti['BO1']); ?>
-	 </div>
-  </div>
-
-  <div class="profilo_voce">
-     <div class="profilo_voce_label">
-	    <?php echo gdrcd_filter('out',$PARAMETERS['names']['stats']['car2']); ?>:
-	 </div>
-	 <div class="profilo_voce_valore">
-	    <?php echo gdrcd_filter('out',$record['car2']+$record['bonus_car2']+$bonus_oggetti['BO2']); ?>
-	 </div>
-  </div>
-
-  <div class="profilo_voce">
-     <div class="profilo_voce_label">
-	    <?php echo gdrcd_filter('out',$PARAMETERS['names']['stats']['car3']); ?>:
-	 </div>
-	 <div class="profilo_voce_valore">
-	    <?php echo gdrcd_filter('out',$record['car3']+$record['bonus_car3']+$bonus_oggetti['BO3']); ?>
-	 </div>
-  </div>
-
-  <div class="profilo_voce">
-     <div class="profilo_voce_label">
-	    <?php echo gdrcd_filter('out',$PARAMETERS['names']['stats']['car4']); ?>:
-	 </div>
-	 <div class="profilo_voce_valore">
-	    <?php echo gdrcd_filter('out',$record['car4']+$record['bonus_car4']+$bonus_oggetti['BO4']); ?>
-	 </div>
-  </div>
-
-  <div class="profilo_voce">
-     <div class="profilo_voce_label">
-	    <?php echo gdrcd_filter('out',$PARAMETERS['names']['stats']['car5']); ?>:
-	 </div>
-	 <div class="profilo_voce_valore">
-	    <?php echo gdrcd_filter('out',$record['car5']+$record['bonus_car5']+$bonus_oggetti['BO5']); ?>
-	 </div>
-  </div> (decommenta tutto questo blocco fino al titolo per riabilitare le statistiche base del personaggio)-->
 
   <div class="profilo_voce">
      <div class="profilo_voce_label">
@@ -546,8 +482,6 @@ if ($PARAMETERS['mode']['alert_password_change']=='ON')
 
 <?php }//else?>
 
-<!-- embed src="<?php //echo gdrcd_bbcoder(gdrcd_filter('out',$record['url_media'])); ?>" height="0" width="0"-->
-
 <?php
   //Impedisci XSS nella musica
   $record['url_media']=gdrcd_filter('fullurl',$record['url_media']);
@@ -564,11 +498,6 @@ if ($PARAMETERS['mode']['alert_password_change']=='ON')
 	" autostart="true">
 	<embed src="<?php echo $record['url_media']; ?>" autostart="true" hidden="true" />
 </object>
-
-<!--[if IE9]>
-<embed src="<?php echo $record['url_media']; ?>" autostart="true" hidden="true" />
-<![endif]-->
-
 
 <?php
 
