@@ -19,5 +19,5 @@ jobs:
         git config user.name land
         git config user.email minefap44@gmail.com
         git add .
-        git push
+        git push origin main
         git ftp push --user ${{ secrets.FTP_USERNAME }} --passwd ${{ secrets.FTP_PASSWORD }} ${{ secrets.FTP_SERVER }}
