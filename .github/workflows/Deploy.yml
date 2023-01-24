@@ -6,13 +6,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: check
-      run: |
-        git config user.name ghil
-        git config user.email minefap44@gmail.com
-        git add .
-        git commit -m 'test'
-        git push -f
     - name: Replace Username
       run: sed -i 's/_DATABASE_USERNAME_/${{ secrets._DATABASE_USERNAME_ }}/g' $GITHUB_WORKSPACE/config.inc.php
     - name: Replace Password
