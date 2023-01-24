@@ -22,9 +22,9 @@
 error_reporting(E_ERROR | E_PARSE);
 
 /* PARAMETRI DI CONNESSIONE */
-$PARAMETERS['database']['username'] = 'provalice'; //nome utente del database
-$PARAMETERS['database']['password'] = '19ProvAlice93'; //password del database
-$PARAMETERS['database']['database_name'] = 'my_provalice'; //nome del database
+$PARAMETERS['database']['username'] = '_DATABASE_USERNAME_'; //nome utente del database
+$PARAMETERS['database']['password'] = '_DATABASE_PASSWORD_'; //password del database
+$PARAMETERS['database']['database_name'] = '_DATABASE_NAME_'; //nome del database
 $PARAMETERS['database']['url'] = 'localhost'; //indirizzo ip del database
 
 
